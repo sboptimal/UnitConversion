@@ -65,7 +65,7 @@ public class DistanceConverter : BaseUnitConverter {
         { new UnitFactorSynonyms("mm", "millimetre"), 1000 },
         { new UnitFactorSynonyms("ft", "foot", "feet"), 1250d / 381 },
         { new UnitFactorSynonyms("yd", "yard"), 1250d / 1143 },
-        { "mile", 125d / 201168 },
+        { "mile", 125d / 201168 }, // strings automatically cast to UnitFactorSynonyms
         { new UnitFactorSynonyms("in", "inch"), 5000d / 127 },
     };
 
