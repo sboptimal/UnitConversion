@@ -14,7 +14,7 @@ namespace UnitConversion.Base
     /// <summary>
     /// Base functionality for the rest of the project.
     /// </summary>
-    public abstract class BaseUnitConverter : IUnitConverter
+    public abstract class BaseUnitConverter : IUnitConverter, IBaseUnitConverter
     {
         /// <summary>
         /// Set Unit conversions. Left/Right conversion will default to UnitFactors.BaseUnit
@@ -208,6 +208,15 @@ namespace UnitConversion.Base
             AddUnit((UnitFactorSynonyms)name, factor);
         }
 
+        /// <summary>
+        /// Checks to see if the unit is supported
+        /// </summary>
+        /// <param name="name">name of the unit</param>
+        /// <returns>true if supported otherwise false</returns>
+        public bool IsUnitSupported(string name)
+        {
+            return null != Units.FindUnit((UnitFactorSynonyms)name);
+        }
 
         // ** VALIDATION **
 

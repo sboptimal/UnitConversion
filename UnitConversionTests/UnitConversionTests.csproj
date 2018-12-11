@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <VersionPrefix>0.1</VersionPrefix>
-    <TargetFramework>netcoreapp1.0</TargetFramework>
+    <TargetFrameworks>netcoreapp1.0;net47;</TargetFrameworks>
     <AssemblyName>UnitConversionTests</AssemblyName>
     <PackageId>UnitConversionTests</PackageId>
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
