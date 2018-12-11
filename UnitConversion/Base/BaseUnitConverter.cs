@@ -24,7 +24,7 @@ namespace UnitConversion.Base
             Units = conversionFactors;
 
             UnitLeft = Units.BaseUnit;
-            unitRight = units.BaseUnit;
+            UnitRight = Units.BaseUnit;
         }
 
         /// <summary>
