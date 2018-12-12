@@ -107,6 +107,25 @@ namespace UnitConversion
         }
 
         /// <summary>
+        /// Add a new synonym to a unit converter
+        /// </summary>
+        /// 
+        /// <typeparam name="T">type of unit converter</typeparam>
+        /// 
+        /// <param name="existingSynonym">name of an existing synonym</param>
+        /// <param name="newSynonym">new synonym to add</param>
+        /// 
+        /// <exception cref="UnitConverterMissingException">occurs if the specified unit converter is not registered</exception>
+        public void AddSynonym<T>(string existingSynonym, string newSynonym)
+            where T : class, IBaseUnitConverter, IUnitConverter
+        {
+            if (!Contains<T>())
+                throw new UnitConverterMissingException(typeof(T).Name);
+
+            _unitConverters[typeof(T).Name.GetHashCode()].AddSynonym(existingSynonym, newSynonym);
+        }
+
+        /// <summary>
         /// Converts a value between units using the registered unit converters
         /// </summary>
         /// 

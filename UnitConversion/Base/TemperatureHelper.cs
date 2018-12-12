@@ -1,42 +1,50 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace UnitConversion.Base
 {
-    public class TemperatureHelper
+    public static class TemperatureHelper
     {
-        public static List<string> Celsius = new List<string>() { "celsius", "Celsius", "°C", "°c" };
-        public static List<string> Fahrenheit = new List<string>() { "fahrenheit", "Fahrenheit", "°F", "°f" };
-        public static List<string> Kelvin = new List<string>() { "Kelvin", "kelvin", "°K", "°k" };
+        private const string CELSIUS_KEY = "Celsius";
+        private const string FAHRENHEIT_KEY = "Fahrenheit";
+        private const string KELVIN_KEY = "Kelvin";
         
         //Reference: https://www.thoughtco.com/temperature-conversion-formulas-609324
-        public static double AToB(double value, string startUnit, string endUnit)
+        public static double AToB(IBaseUnitConverter unitConverter, double value, string startUnit, string endUnit)
         {
-            if (Celsius.Contains(startUnit) && Fahrenheit.Contains(endUnit))
+            UnitFactorSynonyms startUnitSyn = unitConverter.SupportedUnits.SingleOrDefault(r => r.Contains(startUnit));
+            UnitFactorSynonyms endUnitSyn = unitConverter.SupportedUnits.SingleOrDefault(r => r.Contains(endUnit));
+
+            if (startUnitSyn is default(UnitFactorSynonyms) || endUnitSyn is default(UnitFactorSynonyms))
+                return value;
+
+            if(startUnitSyn.Contains(CELSIUS_KEY) && endUnitSyn.Contains(FAHRENHEIT_KEY))
             {
                 //Celsius to Fahrenheit : °F = 9/5 (°C) + 32
                 return (((9d / 5) * value) + 32);
             }
-            else if (Kelvin.Contains(startUnit) && Fahrenheit.Contains(endUnit))
+            else if (startUnitSyn.Contains(KELVIN_KEY) && endUnitSyn.Contains(FAHRENHEIT_KEY))
             {
                 //Kelvin to Fahrenheit: °F = 9 / 5(K - 273.15) + 32
                 return ((9d / 5) * (value - 273.15) + 32);
             }
-            else if (Fahrenheit.Contains(startUnit) && Celsius.Contains(endUnit))
+            else if (startUnitSyn.Contains(FAHRENHEIT_KEY) && endUnitSyn.Contains(CELSIUS_KEY))
             {
                 //Fahrenheit to Celsius: °C = 5/9 (°F - 32)
                 return ((5d / 9) * (value - 32));
             }
-            else if (Celsius.Contains(startUnit) && Kelvin.Contains(endUnit))
+            else if (startUnitSyn.Contains(CELSIUS_KEY) && endUnitSyn.Contains(KELVIN_KEY))
             {
                 //Celsius to Kelvin: K = °C + 273.15
                 return value + 273.15;
             }
-            else if (Kelvin.Contains(startUnit) && Celsius.Contains(endUnit))
+            else if (startUnitSyn.Contains(KELVIN_KEY) && endUnitSyn.Contains(CELSIUS_KEY))
             {
                 //Kelvin to Celsius: °C = K - 273.15
                 return value - 273.15;
             }
-            else if (Fahrenheit.Contains(startUnit) && Kelvin.Contains(endUnit))
+            else if (startUnitSyn.Contains(FAHRENHEIT_KEY) && endUnitSyn.Contains(KELVIN_KEY))
             {
                 //Fahrenheit to Kelvin: K = 5 / 9(°F - 32) + 273.15
                 return ((5d / 9) * (value - 32) + 273.15);

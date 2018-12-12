@@ -38,7 +38,6 @@ namespace UnitConversion.Base
             UnitRight = rightUnit;
         }
 
-
         // ** CONFIGURATION **
 
         /// <summary>
@@ -60,13 +59,13 @@ namespace UnitConversion.Base
             }
         }
         private UnitFactors units;
-        
+
         /// <summary>
         /// The Unit to convert on the left
         /// </summary>
         public string UnitLeft {
             get {
-                if (unitLeft == string.Empty)
+                if (unitLeft?.Length == 0)
                 {
                     throw new InvalidOperationException("UnitLeft has not been set");
                 }
@@ -87,7 +86,7 @@ namespace UnitConversion.Base
         {
             get
             {
-                if (unitRight == string.Empty)
+                if (unitRight?.Length == 0)
                 {
                     throw new InvalidOperationException("UnitRight has not been set");
                 }
@@ -101,7 +100,6 @@ namespace UnitConversion.Base
         }
         private string unitRight;
 
-
         // ** CONVERSION **
 
         /// <summary>
@@ -112,7 +110,7 @@ namespace UnitConversion.Base
         public double LeftToRight(double value)
         {
             if (units.BaseUnit == "celsius")
-                return TemperatureHelper.AToB(value, UnitLeft, UnitRight);
+                return TemperatureHelper.AToB(this, value, UnitLeft, UnitRight);
 
             return AToB(value, UnitLeft, UnitRight);
         }
@@ -136,7 +134,7 @@ namespace UnitConversion.Base
         public double RightToLeft(double value)
         {
             if (units.BaseUnit == "celsius")
-                return TemperatureHelper.AToB(value, UnitRight, UnitLeft);
+                return TemperatureHelper.AToB(this, value, UnitRight, UnitLeft);
 
             return AToB(value, UnitRight, UnitLeft);
         }
@@ -159,7 +157,6 @@ namespace UnitConversion.Base
             var result = (value / startFactor) * endFactor;
             return result.CheckCloseEnoughValue();
         }
-
 
         // ** UNITS **
 

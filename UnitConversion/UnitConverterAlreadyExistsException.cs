@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace UnitConversion.Base
+namespace UnitConversion
 {
     /// <summary>
     /// Indicates that a unit converter already exists

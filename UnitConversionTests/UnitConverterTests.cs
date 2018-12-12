@@ -128,6 +128,59 @@ namespace UnitConversionTests
             Assert.IsNull(unitConverter);
         }
 
+        [TestMethod()]
+        public void AddCustomSynonymToExistingConverter()
+        {
+            UnitConverter converter = new UnitConverter();
+
+            converter.Register<MassConverter>();
+            converter.Register<TemperatureConverter>();
+            converter.Register<PressureConverter>();
+
+            converter.AddSynonym<TemperatureConverter>("°C", "1/°C");
+            converter.AddSynonym<TemperatureConverter>("°F", "1/°F");
+
+            double value = converter.Convert("1/°C", "1/°F", 1.0);
+
+            Assert.AreEqual(33.8, value);
+        }
+
+        [TestMethod()]
+        [ExpectedException(typeof(UnitConverterMissingException))]
+        public void AddCustomSynonymToMissingConverter()
+        {
+            UnitConverter converter = new UnitConverter();
+
+            converter.Register<MassConverter>();
+            converter.Register<PressureConverter>();
+
+            converter.AddSynonym<TemperatureConverter>("°C", "1/°C");
+            converter.AddSynonym<TemperatureConverter>("°F", "1/°F");
+
+            double value = converter.Convert("1/°C", "1/°F", 1.0);
+
+            // This shouldn't run if the exception is raised
+            Assert.Fail("Should have raised an UnitConverterMissingException");
+        }
+
+        [TestMethod()]
+        [ExpectedException(typeof(UnitNotSupportedException))]
+        public void ConvertCustomSynonymWithMissingSynonym()
+        {
+            UnitConverter converter = new UnitConverter();
+
+            converter.Register<MassConverter>();
+            converter.Register<TemperatureConverter>();
+            converter.Register<PressureConverter>();
+
+            converter.AddSynonym<TemperatureConverter>("°C", "1/°C");
+
+            double value = converter.Convert("1/°C", "1/°F", 1.0);
+
+            // This shouldn't run if the exception is raised
+            Assert.Fail("Should have raised an UnitNotSupportedException");
+        }
+
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void ConvertWithNullFromParameter()
