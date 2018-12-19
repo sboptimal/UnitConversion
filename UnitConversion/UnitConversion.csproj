@@ -7,7 +7,7 @@
     <Authors>George Kampolis, Previously Nick Lucas</Authors>
     <TargetFrameworks>netstandard1.3;netstandard2.0;net40;net47;</TargetFrameworks>
     <AssemblyName>UnitConversion</AssemblyName>
-    <PackageId>UnitConversion</PackageId>
+    <PackageId>UnitConversion.Optimal</PackageId>
     <PackageTags>unit;converter;conversion</PackageTags>
     <PackageProjectUrl>http://www.gkampolis.com/UnitConversion/</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
@@ -29,6 +29,7 @@
     
     <!-- Optional: Include the PDB in the built .nupkg -->
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
