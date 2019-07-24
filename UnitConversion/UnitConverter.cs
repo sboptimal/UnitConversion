@@ -8,7 +8,7 @@ namespace UnitConversion
 {
     public class UnitConverter
     {
-        readonly Dictionary<int, IBaseUnitConverter> _unitConverters;
+        private readonly Dictionary<int, IBaseUnitConverter> _unitConverters;
 
         /// <summary>
         /// Default Constructor
@@ -45,16 +45,12 @@ namespace UnitConversion
 
 #if NETSTANDARD1_3
 
-            Assembly ass = typeof(UnitConverter).GetTypeInfo().Assembly;
-
-            foreach (TypeInfo ti in ass.DefinedTypes)
+            foreach (var ti in typeof(UnitConverter).GetTypeInfo().Assembly.DefinedTypes)
             {
-                if (!ti.IsAbstract && ti.ImplementedInterfaces.Contains(typeof(IUnitConverter)))
+                if (!ti.IsAbstract && ti.ImplementedInterfaces.Contains(typeof(IUnitConverter))
+                    && Activator.CreateInstance(ti.AsType()) is IBaseUnitConverter baseConverter)
                 {
-                    if (Activator.CreateInstance(ti.AsType()) is IBaseUnitConverter baseConverter)
-                    {
-                        _unitConverters.Add(ti.Name.GetHashCode(), baseConverter);
-                    }
+                    _unitConverters.Add(ti.Name.GetHashCode(), baseConverter);
                 }
             }
 
@@ -167,7 +163,7 @@ namespace UnitConversion
         /// <returns>the base unit converter if successful otherwise null</returns>
         /// 
         /// <exception cref="UnitNotSupportedException">occurs if either the from or to units are not found in a unit converter</exception>
-        IBaseUnitConverter FindUnitConverter(string fromUnit, string toUnit)
+        private IBaseUnitConverter FindUnitConverter(string fromUnit, string toUnit)
         {
             if (Count > 0)
             {

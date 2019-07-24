@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Copyright>George Kampolis 2018</Copyright>
     <AssemblyTitle>UnitConversion</AssemblyTitle>
-    <VersionPrefix>0.3.2.4</VersionPrefix>
+    <VersionPrefix>0.3.2.5</VersionPrefix>
     <Authors>George Kampolis, Previously Nick Lucas</Authors>
     <TargetFrameworks>netstandard1.3;netstandard2.0;net40;net47;</TargetFrameworks>
     <AssemblyName>UnitConversion</AssemblyName>
@@ -11,15 +11,15 @@
     <PackageTags>unit;converter;conversion</PackageTags>
     <PackageProjectUrl>http://www.gkampolis.com/UnitConversion/</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/gkampolis/UnitConversion</RepositoryUrl>
+    <RepositoryUrl>https://github.com/sboptimal/UnitConversion</RepositoryUrl>
     <PackageTargetFallback Condition=" '$(TargetFramework)' == 'netstandard1.3' ">$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <iconUrl>https://github.com/gkampolis/UnitConversion/blob/master/Logo/UnitConversion.jpg?raw=true</iconUrl>
-    <AssemblyVersion>0.3.2.4</AssemblyVersion>
-    <FileVersion>0.3.2.4</FileVersion>
-    <Version>0.3.2.4</Version>
+    <AssemblyVersion>0.3.2.6</AssemblyVersion>
+    <FileVersion>0.3.2.6</FileVersion>
+    <Version>0.3.2.6</Version>
 
     <!-- Optional: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
@@ -29,12 +29,18 @@
     
     <!-- Optional: Include the PDB in the built .nupkg -->
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+
+
+    <!-- Optional: Build symbol package (.snupkg) to distribute the PDB containing Source Link -->
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
     <AdditionalFiles Include="..\stylecop.json" Link="stylecop.json" />
-    <!--<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta-63127-02" PrivateAssets="All"/>-->
+    <!--<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta-62905-03" PrivateAssets="All"/>-->
   </ItemGroup>
 
 </Project>
