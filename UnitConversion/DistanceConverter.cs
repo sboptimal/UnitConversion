@@ -26,6 +26,7 @@ namespace UnitConversion
             { new UnitFactorSynonyms("yd", "yard"), 1250d / 1143 },
             { "mile", 125d / 201168 },
             { new UnitFactorSynonyms("in", "inch", "inches"), 5000d / 127 },
+            { new UnitFactorSynonyms("thou"), 5_000_000d / 127 },
         };
 
         public DistanceConverter(string leftUnit, string rightUnit)

@@ -24,7 +24,7 @@ namespace UnitConversion
             { new UnitFactorSynonyms("lb", "lbf", "pound", "Pound", "lbs"), 0.224808943100 },
 
             // Metric Ton
-            { new UnitFactorSynonyms("t", "tonne", "metric ton", "ton"), 0.000101971621 },
+            { new UnitFactorSynonyms("t", "tonne", "metric ton", "ton", "tonnes"), 0.000101971621 },
 
             // Long Ton (UK)
             { new UnitFactorSynonyms("long ton"), 0.000100361135 },
