@@ -11,9 +11,9 @@ namespace UnitConversion
     using UnitConversion.Base;
 
     /// <summary>
-    /// Converts between mass units.
+    /// Converts between linear acceleration units.
     /// </summary>
-    public class AccelerationConverter : BaseUnitConverter
+    public class LinearAccelerationConverter : BaseUnitConverter
     {
         UnitFactors units = new UnitFactors("m/s2")
         {
@@ -28,11 +28,11 @@ namespace UnitConversion
             { new UnitFactorSynonyms("mm/s2", "millimetres per second squared"), 1_000.0 },
         };
 
-        public AccelerationConverter(string leftUnit, string rightUnit)
+        public LinearAccelerationConverter(string leftUnit, string rightUnit)
         {
             Instantiate(units, leftUnit, rightUnit);
         }
-        public AccelerationConverter() : base()
+        public LinearAccelerationConverter() : base()
         {
             Instantiate(units);
         }

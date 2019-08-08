@@ -11,9 +11,9 @@ namespace UnitConversion
     using UnitConversion.Base;
 
     /// <summary>
-    /// Converts between mass units.
+    /// Converts between linear velocity units.
     /// </summary>
-    public class VelocityConverter : BaseUnitConverter
+    public class LinearVelocityConverter : BaseUnitConverter
     {
         UnitFactors units = new UnitFactors("m/s")
         {
@@ -23,9 +23,9 @@ namespace UnitConversion
             { new UnitFactorSynonyms("cm/min", "Centimetres per minute"), 6_000.000000000000 },
             { new UnitFactorSynonyms("cm/hour", "Centimetres per hour"), 360_000.000000000000 },
 
-            { new UnitFactorSynonyms("ft/s", "feet per second"), 3.280839895013 },
-            { new UnitFactorSynonyms("ft/min", "feet per minute"), 196.850393700787 },
-            { new UnitFactorSynonyms("ft/hour", "feet per hour"), 11_811.023622047244 },
+            { new UnitFactorSynonyms("ft/s", "feet per second", "FPS", "fps"), 3.280839895013 },
+            { new UnitFactorSynonyms("ft/min", "feet per minute", "FPM", "fpm"), 196.850393700787 },
+            { new UnitFactorSynonyms("ft/hour", "feet per hour", "FPH", "fph"), 11_811.023622047244 },
 
             { new UnitFactorSynonyms("in/s", "inches per second"), 39.370078740157 },
             { new UnitFactorSynonyms("in/min", "inches per minute"), 2_362.204724409449 },
@@ -47,11 +47,11 @@ namespace UnitConversion
 
         };
 
-        public VelocityConverter(string leftUnit, string rightUnit)
+        public LinearVelocityConverter(string leftUnit, string rightUnit)
         {
             Instantiate(units, leftUnit, rightUnit);
         }
-        public VelocityConverter() : base()
+        public LinearVelocityConverter() : base()
         {
             Instantiate(units);
         }

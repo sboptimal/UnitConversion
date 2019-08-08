@@ -11,7 +11,7 @@ namespace UnitConversion
     using UnitConversion.Base;
 
     /// <summary>
-    /// Converts between mass units.
+    /// Converts between force units.
     /// </summary>
     public class ForceConverter : BaseUnitConverter
     {

@@ -11,7 +11,7 @@ namespace UnitConversion
     using UnitConversion.Base;
 
     /// <summary>
-    /// Converts between mass units.
+    /// Converts between flow units.
     /// </summary>
     public class FlowConverter : BaseUnitConverter
     {
@@ -52,9 +52,9 @@ namespace UnitConversion
             { new UnitFactorSynonyms("us fl oz/hour", "US fl oz/hour", "US fluid ounce per hour"), 121_730_481.726486970000 },
 
 
-            { new UnitFactorSynonyms("us gal/s", "US gal/s", "US gallon per second"), 264.172052357828 },
-            { new UnitFactorSynonyms("us gal/min", "US gal/min", "US gallon per minute"), 15_850.323141469658 },
-            { new UnitFactorSynonyms("us gal/hour", "US gal/hour", "US gallon per hour"), 951_019.388488179454 },
+            { new UnitFactorSynonyms("us gal/s", "US gal/s", "US gallon per second", "US GPS"), 264.172052357828 },
+            { new UnitFactorSynonyms("us gal/min", "US gal/min", "US gallon per minute", "US GPM"), 15_850.323141469658 },
+            { new UnitFactorSynonyms("us gal/hour", "US gal/hour", "US gallon per hour", "US GPH"), 951_019.388488179454 },
 
         };
 

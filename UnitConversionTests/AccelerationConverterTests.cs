@@ -11,7 +11,7 @@ namespace UnitConversionTests {
     [TestClass()]
     public class AccelerationConverterTests
     {
-        AccelerationConverter converter = null;
+        LinearAccelerationConverter converter = null;
         
         [TestCleanup()]
         public void Cleanup() {
@@ -20,7 +20,7 @@ namespace UnitConversionTests {
 
         [TestMethod()]
         public void m_s2___m_s2() {
-            converter = new AccelerationConverter("m/s2", "m/s2");
+            converter = new LinearAccelerationConverter("m/s2", "m/s2");
             double valL = 1;
             double valR = 1;
 
@@ -30,7 +30,7 @@ namespace UnitConversionTests {
 
         [TestMethod()]
         public void m_s2___cm_s2() {
-            converter = new AccelerationConverter("m/s2", "cm/s2");
+            converter = new LinearAccelerationConverter("m/s2", "cm/s2");
             double valL = 1;
             double valR = 100;
 
@@ -41,7 +41,7 @@ namespace UnitConversionTests {
         [TestMethod()]
         public void m_s2___ft_s2()
         {
-            converter = new AccelerationConverter("m/s2", "ft/s2");
+            converter = new LinearAccelerationConverter("m/s2", "ft/s2");
             double valL = 1;
             double valR = 3.280839895013;
 
@@ -52,7 +52,7 @@ namespace UnitConversionTests {
         [TestMethod()]
         public void m_s2___in_s2()
         {
-            converter = new AccelerationConverter("m/s2", "in/s2");
+            converter = new LinearAccelerationConverter("m/s2", "in/s2");
             double valL = 1;
             double valR = 39.370078740157;
 
@@ -63,7 +63,7 @@ namespace UnitConversionTests {
         [TestMethod()]
         public void m_s2___mm_s2()
         {
-            converter = new AccelerationConverter("m/s2", "mm/s2");
+            converter = new LinearAccelerationConverter("m/s2", "mm/s2");
             double valL = 1;
             double valR = 1_000;
 
