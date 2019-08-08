@@ -28,6 +28,10 @@ namespace UnitConversion
 
             { new UnitFactorSynonyms("kg.cm", "Kilogram Centimeter", "kilogram centimeter", "Kg.cm", "kg.cm"), 10.197162129779 },
 
+            { new UnitFactorSynonyms("t.m", "ton meter", "tonne meter", "ton-m", "ton.m"), 0.00010197162129779283 },
+
+            { new UnitFactorSynonyms("t.mm", "ton millimeter", "tonne millimeter", "ton-mm", "ton.mm"), 0.10197162 },
+
         };
 
         public RotationalForceConverter(string leftUnit, string rightUnit)
