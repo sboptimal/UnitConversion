@@ -30,7 +30,7 @@ namespace UnitConversion
             { new UnitFactorSynonyms("long ton"), 0.000100361135 },
 
             // Short Ton (US)
-            { new UnitFactorSynonyms("short ton", "US ton", "US tons"), 0.000112404472 },
+            { new UnitFactorSynonyms("short ton", "US ton", "US tons", "US t"), 0.000112404472 },
 
         };
 
