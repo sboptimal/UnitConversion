@@ -10,13 +10,13 @@ namespace UnitConversion
     using UnitConversion.Base;
 
     /// <summary>
-    /// Converts between rotationl force units.
+    /// Converts between rotational force units.
     /// </summary>
     public class RotationalForceConverter : BaseUnitConverter
     {
         readonly UnitFactors units = new UnitFactors("Nm")
         {
-            { new UnitFactorSynonyms("Nn", "Newton meter", "Newton meters"), 1.0 },
+            { new UnitFactorSynonyms("Nm", "Newton meter", "Newton meters"), 1.0 },
 
             { new UnitFactorSynonyms("lb.ft", "Pound Foot", "pound foot", "Lb-Ft", "lb-ft"), 0.73756214927727 },
 
