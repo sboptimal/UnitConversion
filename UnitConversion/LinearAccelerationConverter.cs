@@ -19,9 +19,13 @@ namespace UnitConversion
         {
             { new UnitFactorSynonyms("m/s2", "metres per second squared"), 1 },
 
+            { new UnitFactorSynonyms("m/min2", "metres per minute squared", "(m/min)2"), 60.0 },
+
             { new UnitFactorSynonyms("cm/s2", "centimetres per second squared"), 100.0 },
 
             { new UnitFactorSynonyms("ft/s2", "feet per second squared"), 3.280839895013 },
+
+            { new UnitFactorSynonyms("ft/min2", "feet per second squared"), 196.850394 },
 
             { new UnitFactorSynonyms("in/s2", "inches per second squared"), 39.370078740157 },
 
