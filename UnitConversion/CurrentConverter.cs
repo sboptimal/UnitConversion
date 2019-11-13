@@ -16,9 +16,9 @@ namespace UnitConversion
     {
         readonly UnitFactors units = new UnitFactors("A")
         {
-            { new UnitFactorSynonyms("A", "Amps", "amps"), 1.0 },
-            { new UnitFactorSynonyms("mA", "milliamps"), 1E3 },
-            { new UnitFactorSynonyms("uA", "microamps"), 1E6 },
+            { new UnitFactorSynonyms("A", "Amp", "amp", "Amps", "amps"), 1.0 },
+            { new UnitFactorSynonyms("mA", "milliamp", "milliamps"), 1E3 },
+            { new UnitFactorSynonyms("uA", "microamp", "microamps"), 1E6 },
 
         };
 

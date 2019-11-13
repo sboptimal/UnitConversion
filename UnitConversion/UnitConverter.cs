@@ -6,6 +6,7 @@ using UnitConversion.Base;
 
 namespace UnitConversion
 {
+    [Serializable]
     public class UnitConverter
     {
         private readonly Dictionary<int, IBaseUnitConverter> _unitConverters;

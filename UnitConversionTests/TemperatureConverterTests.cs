@@ -44,6 +44,16 @@ namespace UnitConversionTests
             Assert.AreEqual(valL, converter.RightToLeft(valR, 3));
         }
         [TestMethod()]
+        public void Fahrenheit_Celsius_Synonym()
+        {
+            converter = new TemperatureConverter("F", "C");
+            double valL = 1;
+            double valR = -17.222;
+
+            Assert.AreEqual(valR, converter.LeftToRight(valL, 3));
+            Assert.AreEqual(valL, converter.RightToLeft(valR, 3));
+        }
+        [TestMethod()]
         public void Celsius_Kelvin()
         {
             converter = new TemperatureConverter("celsius", "kelvin");
