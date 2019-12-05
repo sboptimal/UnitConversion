@@ -39,7 +39,7 @@ namespace UnitConversion
             { new UnitFactorSynonyms("lb/in2", "psi", "pounds per square inch", "pounds/in2", "lbf/in2"), 0.000145037738 },
 
             // Metric Ton
-            { new UnitFactorSynonyms("t/m2", "tonne per square meter", "ton/m2"), 0.000101971621 },
+            { new UnitFactorSynonyms("t/m2", "tonne per square meter", "ton/m2", "ton"), 0.000101971621 },
 
             // Long Tonnes (UK)
             { new UnitFactorSynonyms("long ton/ft2", "long ton per square foot"), 0.000009323855 },
