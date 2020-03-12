@@ -19,9 +19,11 @@ namespace UnitConversion
         {
             { new UnitFactorSynonyms("rad/s", "rad/sec", "radians per second", "rads"), 1.0 },
 
-            { new UnitFactorSynonyms("deg/s", "deg/sec", "degrees per second", "degs"), 57.2957795 },
+            { new UnitFactorSynonyms("deg/s", "deg/sec", "degrees per second", "degs"), 360/(2*Math.PI) },
             
-            { new UnitFactorSynonyms("rpm", "rev/sec", "revolutions per second"), 9.5492965964254 },
+            { new UnitFactorSynonyms("rps", "rev/s", "revolutions per second"), 2*Math.PI },
+
+            { new UnitFactorSynonyms("rpm", "rev/min", "revolutions per minute"), 60/(2*Math.PI) },
 
         };
 
